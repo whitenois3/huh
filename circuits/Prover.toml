@@ -1,3 +1,4 @@
-x = "1"
-y = "2"
-return = "3"
+nullifier = "666"
+secret = "420"
+nullifierHash = "0x1b740f8850d8cedad82a1b6fe8002d742625ed8c2a306ffd33b8624a708029ee"
+recipient = "0xD2927a91570146218eD700566DF516d67C5ECFAB"

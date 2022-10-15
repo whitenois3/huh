@@ -1,45 +1,28 @@
 <img align="right" width="150" height="150" top="100" src="./assets/readme.png">
 
-# nplate • ![license](https://img.shields.io/github/license/abigger87/femplate?label=license) ![solidity](https://img.shields.io/badge/solidity-^0.8.15-lightgrey)
+# Huh? • ![license](https://img.shields.io/github/license/abigger87/femplate?label=license) ![solidity](https://img.shields.io/badge/solidity-^0.8.15-lightgrey)
 
-A **Simple**, **Minimalist** Template for Noir Projects.
+A NFT solution to mint anonymously.
 
-## Getting Started
+## What is it?
 
-Click [`use this template`](https://github.com/whitenois3/nplate/generate) to create a new repository with this repo as the initial state.
+At its core, Huh? is a minimalist, modulable, extendable solution to obfuscate the relationship between who *pays* for the mint and who actually *mints* it.
 
-## Development
+With the help of zero-knowledge proofs, you can pay from one wallet, and mint it with another that no ones knows about.
 
-Both hardhat and foundry are supported.
-With the help of the `ffi`, you can write complex JS/TS scripts, feed them inputs FROM the foundry test contract and use the output in the test contract.
+## How?
 
-**Setup**
-```bash
-npm install
-```
-Regarding the installation of `nargo`, please refer to its repo [here](https://github.com/noir-lang/noir).
+When you pay, you give a *commitment* to the smart-contract, which is simply a hash of two secret numbers **only you** should have.
+You can generate the commitment and the nullifier hash through either the provided scripts or by building your own frontend.
 
-**Building**
-```bash
-cd circuits
-nargo build
-nargo compile BUILD_NAME
-```
+Once you are ready to mint, you will need to first generate the proof, again with the help of the provided scripts or not. Once it's done, you can use it to mint to the recipient you specified
+during the proof generation.
 
-**Testing**
-```bash
-npx hardhat test
-```
-```bash
-forge test --ffi
-```
+## Warning
 
-We have provided two bash scripts in `utils/` to make your life easier when it comes to generating the Verifier contract and a proof.
+This is experimental code that has **not** been audited! Total anonymity is not guaranteed, and there are always ways to link two addresses together if the user hasn't been careful beforehand.
+This is why we also recommend to the developers to only allow minting *for everyone* after a certain timestamp, potentially bettering the anonymity set.
 
-```
-./utils/safeGenerateContract.sh
-./utils/safeGenerateProof.sh
-```
 
 ## License
 
@@ -48,8 +31,11 @@ We have provided two bash scripts in `utils/` to make your life easier when it c
 
 ## Acknowledgements
 
-- [femplate](https://github.com/abigger87/femplate)
-- [basic_mul_noir_example](https://github.com/vezenovm/basic_mul_noir_example)
+- [foundry](https://github.com/foundry-rs)
+- [noir](https://github.com/noir-lang/noir)
+- [nplate](https://github.com/whitenois3/nplate)
+- [simple_shield](https://github.com/vezenovm/simple_shield)
+- The green swirling air that won't be mentionned to not get randomly OFAC'd
 
 
 ## Disclaimer
