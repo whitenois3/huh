@@ -8,7 +8,7 @@ fn main(
 ) {
     let r = commitmentHasher(nullifier, secret);
     constrain r[1] == nullifierHash;
-    let _recipientSquared = recipient * recipient;
+    constrain recipient == recipient;
 }
 
 fn commitmentHasher(nullifier: Field, secret: Field) -> [Field; 2] {
